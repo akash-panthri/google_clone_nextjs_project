@@ -11,10 +11,19 @@ export default function HomeSearch() {
     if (!input.trim()) return;
     router.push(`/search/web?searchTerm=${input}`);
   }
- 
+  async function randomSearch() {
+    const response = await fetch("https://random-word-api.herokuapp.com/word")
+      .then((res) => res.json())
+      .then((data) => data[0]);
+    if (!response) return;
+    router.push(`/search/web?searchTerm=${response}`);
+  }
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 px-5 py-3 rounded-full hover:shadow-md focus-within:shadow-md transition-shadow sm:max-w-xl lg:max-w-2xl">
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 px-5 py-3 rounded-full hover:shadow-md focus-within:shadow-md transition-shadow sm:max-w-xl lg:max-w-2xl"
+      >
         <AiOutlineSearch className="text-xl text-gray-500 mr-3" />
         <input
           type="text"
@@ -25,8 +34,12 @@ export default function HomeSearch() {
         <BsFillMicFill className="text-lg" />
       </form>
       <div className="flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 px-5 py-3 rounded-full hover:shadow-md focus-within:shadow-md transition-shadow sm:max-w-xl lg:max-w-2xl">
-        <button onClick={handleSubmit} className="btn">Google Search</button>
-        <button className="btn">I am Feeling Lucky</button>
+        <button onClick={handleSubmit} className="btn">
+          Google Search
+        </button>
+        <button onClick={randomSearch} className="btn">
+          I am Feeling Lucky
+        </button>
       </div>
     </>
   );
