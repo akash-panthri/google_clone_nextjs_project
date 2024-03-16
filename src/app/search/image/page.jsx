@@ -5,4 +5,3 @@ export default async function ImageSearchPage() {
     <div>ImageSearchPage</div>
   )
 }
-//src\app\search\image\page.jsx
