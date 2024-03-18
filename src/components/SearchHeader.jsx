@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SearchBox from "./SearchBox";
 import { RiSettings3Line } from "react-icons/ri";
 import { TbGridDots } from "react-icons/tb";
 
@@ -15,7 +16,9 @@ export default function SearchHeader() {
             alt="Google"
           />
         </Link>
-
+        <div className="flex-1">
+          <SearchBox />
+        </div>
         <div className="hidden md:inline-flex space-x-2 ">
           <RiSettings3Line className="header-icon" />
           <TbGridDots className="header-icon" />
