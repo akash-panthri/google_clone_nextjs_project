@@ -5,8 +5,8 @@ import { TbGridDots } from "react-icons/tb";
 
 export default function SearchHeader() {
   return (
-    <header>
-      <div className="">
+    <header className="sticky top-0 bg-white">
+      <div className="flex w-full p-6 items-center justify-between">
         <Link href={"/"}>
           <Image
             width="120"
@@ -16,11 +16,11 @@ export default function SearchHeader() {
           />
         </Link>
 
-        <div className="">
-          <RiSettings3Line/>
-          <TbGridDots/>
+        <div className="hidden md:inline-flex space-x-2 ">
+          <RiSettings3Line className="header-icon" />
+          <TbGridDots className="header-icon" />
         </div>
-        <button>
+        <button className="bg-blue-500 text-white px-6 py-2 font-medium rounded-md hover:brightness-105 hover:shadow-md transition-all ml-2">
           Sign in
         </button>
       </div>
