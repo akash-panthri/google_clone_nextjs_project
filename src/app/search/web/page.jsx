@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 export default async function WebSearchPage({searchParams}) {
@@ -12,7 +13,19 @@ export default async function WebSearchPage({searchParams}) {
   const data = await response.json();
 
   const results = data.items;
-
+  if (!results) {
+    return (
+      <div >
+        <h1 >No results found</h1>
+        <p >
+          Try searching for something else or go back to the homepage{" "}
+          <Link href="/">
+            Home
+          </Link>
+        </p>
+      </div>
+    );
+  }
   return (
     <>{results && results.map((result)=><h1 key={result.title}>{result.title}</h1>)}</>
   )
