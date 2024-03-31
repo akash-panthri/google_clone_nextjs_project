@@ -1,3 +1,4 @@
+import WebSearchResults from '@/components/WebSearchResults';
 import Link from 'next/link';
 import React from 'react'
 
@@ -6,12 +7,15 @@ export default async function WebSearchPage({searchParams}) {
   const response = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
   );
-  if (!response.ok) {
+ 
+  if (!response) {
     console.log(response);
     throw new Error("Something went wrong");
   }
   const data = await response.json();
-
+  console.log("response starts")
+  console.log(data)
+  console.log("response ends")
   const results = data.items;
 if (!results) {
     return (
@@ -27,6 +31,6 @@ if (!results) {
     );
   }
   return (
-    <>{results && results.map((result)=><h1 key={result.title}>{result.title}</h1>)}</>
+    <>{results && <WebSearchResults resultsData={data} />}</>
   )
 }
