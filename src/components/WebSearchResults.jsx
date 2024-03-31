@@ -8,13 +8,13 @@ export default function WebSearchResults({resultsData}) {
     {resultsData.searchInformation?.formattedSearchTime} seconds)
   </p>
   {resultsData.items?.map((result) => (
-        <div className="" key={result.link}>
-          <div className="">
-            <Link className="" href={result.link}>
+        <div className="mb-8 max-w-xl" key={result.link}>
+          <div className="group flex flex-col">
+            <Link className="text-sm truncate" href={result.link}>
               {result.formattedUrl}
             </Link>
             <Link
-              className=""
+              className="group-hover:underline decoration-blue-800 text-xl truncate font-medium text-blue-800"
               href={result.link}
             >
               {result.title}
