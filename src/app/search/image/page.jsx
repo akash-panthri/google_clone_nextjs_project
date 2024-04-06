@@ -29,10 +29,10 @@ export default async function ImageSearchPage({ searchParams }) {
     );
   }
   return (
-    <div>
+    <>
       
 
-      <ImageSearchResults resultData={data} />
-    </div>
+      {results &&   <ImageSearchResults resultData={data} />}
+    </>
   );
 }
