@@ -2,7 +2,7 @@ import ImageSearchResults from "@/components/ImageSearchResults";
 import Link from "next/link";
 
 export default async function ImageSearchPage({ searchParams }) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 10000));
     const response = await fetch(
       `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image`
     );
