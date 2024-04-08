@@ -1,14 +1,15 @@
 "use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 export default function PaginationButtons() {
-    const pathname = usePathname();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
   const startIndex = +searchParams.get("start") || 1;
   return (
-    <div>{startIndex >= 10 && (
+    <div>
+      {startIndex >= 10 && (
         <Link
           href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex - 10}`}
         >
@@ -16,6 +17,16 @@ export default function PaginationButtons() {
             <p>Previous</p>
           </div>
         </Link>
-      )}</div>
-  )
+      )}
+      {startIndex <= 90 && (
+        <Link
+          href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex + 10}`}
+        >
+          <div className="">
+            <p>Next</p>
+          </div>
+        </Link>
+      )}
+    </div>
+  );
 }
