@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 export default function PaginationButtons() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -14,6 +15,7 @@ export default function PaginationButtons() {
           href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex - 10}`}
         >
           <div className="flex flex-col cursor-pointer items-center hover:underline">
+          <BsChevronLeft className="h-5" />
             <p>Previous</p>
           </div>
         </Link>
@@ -23,6 +25,7 @@ export default function PaginationButtons() {
           href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex + 10}`}
         >
           <div className="flex flex-col cursor-pointer items-center hover:underline">
+          <BsChevronRight className="h-5" />
             <p>Next</p>
           </div>
         </Link>
