@@ -1,6 +1,6 @@
 import WebSearchResults from '@/components/WebSearchResults';
 import Link from 'next/link';
-import React from 'react'
+
 
 export default async function WebSearchPage({searchParams}) {
   const startIndex = searchParams.start || "1";
