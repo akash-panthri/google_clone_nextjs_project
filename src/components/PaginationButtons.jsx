@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react';
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
@@ -9,6 +10,7 @@ export default function PaginationButtons() {
   const searchTerm = searchParams.get("searchTerm");
   const startIndex = +searchParams.get("start") || 1;
   return (
+    <Suspense >
     <div className="text-blue-700 flex px-10 pb-4 justify-between sm:justify-start sm:space-x-44 sm:px-0">
       {startIndex >= 10 && (
         <Link
@@ -31,5 +33,6 @@ export default function PaginationButtons() {
         </Link>
       )}
     </div>
+    </Suspense>
   );
 }

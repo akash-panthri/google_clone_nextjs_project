@@ -1,5 +1,5 @@
 
-export default function loading() {
+export default function Loading() {
   return (
     <>
     <div className="mx-2 pt-10 max-w-6xl lg:pl-52 animate-pulse">
